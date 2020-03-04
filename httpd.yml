@@ -2,6 +2,10 @@
 - name: This sets up an httpd webserver
   hosts: all
   tasks:
+  - name: Install firewalld python module
+    package:
+      name: python-firewall
+      state: present
   - name: Install apache packages 
     package:
       name: httpd

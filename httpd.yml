@@ -2,10 +2,6 @@
 - name: This sets up an httpd webserver
   hosts: all
   tasks:
-  - name: Install firewalld python module
-    package:
-      name: python-firewall
-      state: present
   - name: Install apache packages 
     package:
       name: httpd
@@ -14,12 +10,3 @@
     service:
       name: httpd 
       state: started
-  - name: Open port 80 for http access
-    firewalld:
-      service: http
-      permanent: true
-      state: enabled
-  - name: Restart the firewalld service to load in the firewall changes
-    service: 
-      name: firewalld 
-      state: restarted

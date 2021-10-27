@@ -1,0 +1,8 @@
+---
+- name: This removes httpd webserver
+  hosts: all
+  tasks:
+  - name: Remove apache packages 
+    package:
+      name: httpd
+      state: absent
